@@ -3,7 +3,7 @@ from form_app import app
 
 cards =[]
 
-app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
         name = request.form.get('name')
@@ -19,4 +19,4 @@ def index():
                           })
             return redirect(url_for('index'))
 
-    return render_template('index.html', posts=cards)
+    return render_template('index.html', cards=cards)
